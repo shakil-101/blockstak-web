@@ -61,41 +61,30 @@ const Footer = () => {
                     href={`mailto: support@blockstak.ai`}
                     className="text-2xl font-medium underline"
                   >
-                    {footerData?.email}
+                    {/* {footerData?.email} */}
+                    support@blockstak.ai
                   </a>
                 </div>
               </div>
 
               <div className="flex items-center lg:justify-end justify-center gap-5">
-                {footerData?.facebook && (
-                  <div className=" hover:scale-125 duration-200">
-                    <Link href={footerData.facebook}>
-                      <FacebookSVG />
-                    </Link>
-                  </div>
-                )}
+                {/* {footerData?.facebook && ( */}
+                <div className=" hover:scale-125 duration-200">
+                  {/* <Link href={footerData.facebook}> */}
+                  <Link href={"#"}>
+                    <FacebookSVG />
+                  </Link>
+                </div>
+                {/* )} */}
 
-                {footerData?.linkedin && (
-                  <div className=" hover:scale-125 duration-200">
-                    <Link href={footerData.linkedin}>
-                      <LinkedinSVG />
-                    </Link>
-                  </div>
-                )}
-                {footerData?.messenger && (
-                  <div className=" hover:scale-125 duration-200">
-                    <Link href={footerData.messenger}>
-                      <LinkedinSVG />
-                    </Link>
-                  </div>
-                )}
-                {footerData?.github && (
-                  <div className=" hover:scale-125 duration-200">
-                    <Link href={footerData.github}>
-                      <LinkedinSVG />
-                    </Link>
-                  </div>
-                )}
+                {/* {footerData?.linkedin && ( */}
+                <div className=" hover:scale-125 duration-200">
+                  {/* <Link href={footerData.linkedin}> */}
+                  <Link href={"#"}>
+                    <LinkedinSVG />
+                  </Link>
+                </div>
+                {/* )} */}
               </div>
             </div>
 

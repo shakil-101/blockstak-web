@@ -37,30 +37,30 @@ const IntroductionSlider = () => {
   };
   const sliderRef = useRef<Slider>(null);
   const [activeTab, setActiveTab] = useState<number>(0);
-  const [solutions, setSolutions] = useState<feedBackType[]>([]);
-  // const [solutions2, setSolutions2] = useState<feedBackType[]>([
-  //   {
-  //     title: "We build MVPs for Silicon Valley startups.",
-  //     shortDescription:
-  //       "We're a team of experts who help Silicon Valley startups create Minimum Viable Products (MVPs) that allow them to test their ideas quickly and inexpensively. Our developers and designers work closely with founders to build functional, visually appealing, and user-friendly MVPs using the latest technologies and agile methodologies. ",
-  //     category: "Product Development",
-  //     url: "/introSlider1.svg",
-  //   },
-  //   {
-  //     title: "We make useful AI-based applications.",
-  //     shortDescription:
-  //       "We invest our time into state-of-the-art AI technologies and create applications with real-life touchpoints. We want to take the very best of Artificial Intelligence and put it to programs that help humans excel at their tasks and decision-making.",
-  //     category: "Artificial Intelligence",
-  //     url: "/introSlider2.svg",
-  //   },
-  //   {
-  //     title: "We are exploring the future of Data.",
-  //     shortDescription:
-  //       "At our core, we're a team of passionate blockchain enthusiasts who are committed to exploring the future of this revolutionary technology. We're constantly researching new use cases and applications for blockchain, and we're always eager to collaborate with other innovators in the space.",
-  //     category: "Data Solutions",
-  //     url: "/introSlider3.svg",
-  //   },
-  // ]);
+  // const [solutions, setSolutions] = useState<feedBackType[]>([]);
+  const [solutions, setSolutions] = useState<feedBackType[]>([
+    {
+      title: "We build MVPs for Silicon Valley startups.",
+      shortDescription:
+        "We're a team of experts who help Silicon Valley startups create Minimum Viable Products (MVPs) that allow them to test their ideas quickly and inexpensively. Our developers and designers work closely with founders to build functional, visually appealing, and user-friendly MVPs using the latest technologies and agile methodologies. ",
+      category: "Product Development",
+      url: "/introSlider1.svg",
+    },
+    {
+      title: "We make useful AI-based applications.",
+      shortDescription:
+        "We invest our time into state-of-the-art AI technologies and create applications with real-life touchpoints. We want to take the very best of Artificial Intelligence and put it to programs that help humans excel at their tasks and decision-making.",
+      category: "Artificial Intelligence",
+      url: "/introSlider2.svg",
+    },
+    {
+      title: "We are exploring the future of Data.",
+      shortDescription:
+        "At our core, we're a team of passionate blockchain enthusiasts who are committed to exploring the future of this revolutionary technology. We're constantly researching new use cases and applications for blockchain, and we're always eager to collaborate with other innovators in the space.",
+      category: "Data Solutions",
+      url: "/introSlider3.svg",
+    },
+  ]);
 
   const goToSlide = (index: number) => {
     if (sliderRef.current) {
@@ -88,7 +88,7 @@ const IntroductionSlider = () => {
   };
 
   useEffect(() => {
-    fetchData();
+    // fetchData();
   }, []);
 
   return (
@@ -146,7 +146,8 @@ const IntroductionSlider = () => {
                     <div className="lg:col-span-6 col-span-12 flex lg:justify-end justify-center lg:order-2 order-1 ">
                       <div className="md:block hidden">
                         <Image
-                          src={`${process.env.NEXT_PUBLIC_BASE_URL}${item.url}`}
+                          // src={`${process.env.NEXT_PUBLIC_BASE_URL}${item.url}`}
+                          src={`${item.url}`}
                           alt={`${item.title}`}
                           width={400}
                           height={300}
@@ -154,7 +155,8 @@ const IntroductionSlider = () => {
                       </div>
                       <div className="md:hidden">
                         <Image
-                          src={`${process.env.NEXT_PUBLIC_BASE_URL}${item.url}`}
+                          // src={`${process.env.NEXT_PUBLIC_BASE_URL}${item.url}`}
+                          src={`${item.url}`}
                           alt={`${item.title}`}
                           width={200}
                           height={300}
