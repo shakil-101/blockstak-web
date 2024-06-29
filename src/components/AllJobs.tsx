@@ -110,7 +110,7 @@ const AllJobs = () => {
 
   return (
     <div>
-      <div className="">
+      <div className="pt-20">
         <h1 className="sm:text-[32px] text-2xl sm:font-bold font-semibold text-center mb-3">
           Build Yourself with BlockStak
         </h1>
@@ -290,7 +290,162 @@ const AllJobs = () => {
 
         {/* ====== jobs ======== */}
         <div className="">
-          {loading ? (
+          <Link href={`jobs`}>
+            <div
+              className={`border-b  relative border-secondaryBorder group lg:py-16 py-8`}
+            >
+              <div className="container grid grid-cols-12 lg:gap-16 lg:gap-y-0 gap-y-6 ">
+                <div className="lg:col-span-3 col-span-12 flex lg:justify-end ">
+                  <div className="relative overflow-hidden rounded ">
+                    <Image
+                      src={`/job1.png`}
+                      // src={`${
+                      //   item.url
+                      //     ? `${process.env.NEXT_PUBLIC_BASE_URL}${item.url}`
+                      //     : "/job1.png"
+                      // }`}
+                      width={360}
+                      height={360}
+                      // alt={`${item.designation}`}
+                      alt={`item.designation`}
+                      className="rounded"
+                    />
+
+                    <div className="absolute top-0 right-0 h-full w-full opacity-0 group-hover:opacity-100 duration-300 bg-gradient-to-tr from-transparent via-transparent to-[#6b45e67c]"></div>
+                  </div>
+                </div>
+                <div className="lg:col-span-9 col-span-12 ">
+                  <div className="max-w-[625px] flex flex-col justify-between  h-full">
+                    <div className="">
+                      <h1 className="text-[32px] font-bold mb-6 ">
+                        {/* {item.designation} */}
+                        Frontend Developer
+                      </h1>
+                      <p className="text-xl font-medium text-neutralBase ">
+                        {/* {item.shortDescription} */}
+                        We are looking for a Senior Backend Developer to join
+                        our team. You will be responsible for building the next
+                        generation of our applications. You will be working
+                        closely with our product team to build the best possible
+                        user experience
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-3 lg:pt-4 pt-6">
+                      <LocationSVG />
+                      <p className="text-lg font-normal">
+                        {/* {item.address} */}
+                        Dhaka, Bangladesh
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="lg:block hidden">
+                <div className="absolute top-0 right-0 h-full w-[105px] duration-300 flex items-center justify-center overflow-hidden">
+                  <div className="z-[100]">
+                    <RightArrowSVG
+                      width="28px"
+                      height="28px"
+                      fillColor="#F4F4F4"
+                    />
+                  </div>
+                  <div className="absolute top-0 right-0 h-full w-0 group-hover:w-full duration-300  bg-[#6b45e6] z-0"></div>
+                </div>
+              </div>
+
+              <div className="lg:hidden block mt-12">
+                <div className="h-full gap-4 hover:gap-6 duration-300 flex items-center justify-center ">
+                  <p className="font-medium ">Apply Now</p>
+
+                  <RightArrowSVG
+                    width="28px"
+                    height="28px"
+                    fillColor="#F4F4F4"
+                  />
+                </div>
+              </div>
+            </div>
+          </Link>
+          <Link href={`jobs`}>
+            <div
+              className={`border-b  relative border-secondaryBorder group lg:py-16 py-8`}
+            >
+              <div className="container grid grid-cols-12 lg:gap-16 lg:gap-y-0 gap-y-6 ">
+                <div className="lg:col-span-3 col-span-12 flex lg:justify-end ">
+                  <div className="relative overflow-hidden rounded ">
+                    <Image
+                      src={`/job1.png`}
+                      // src={`${
+                      //   item.url
+                      //     ? `${process.env.NEXT_PUBLIC_BASE_URL}${item.url}`
+                      //     : "/job1.png"
+                      // }`}
+                      width={360}
+                      height={360}
+                      // alt={`${item.designation}`}
+                      alt={`item.designation`}
+                      className="rounded"
+                    />
+
+                    <div className="absolute top-0 right-0 h-full w-full opacity-0 group-hover:opacity-100 duration-300 bg-gradient-to-tr from-transparent via-transparent to-[#6b45e67c]"></div>
+                  </div>
+                </div>
+                <div className="lg:col-span-9 col-span-12 ">
+                  <div className="max-w-[625px] flex flex-col justify-between  h-full">
+                    <div className="">
+                      <h1 className="text-[32px] font-bold mb-6 ">
+                        {/* {item.designation} */}
+                        Frontend Developer
+                      </h1>
+                      <p className="text-xl font-medium text-neutralBase ">
+                        {/* {item.shortDescription} */}
+                        We are looking for a Senior Backend Developer to join
+                        our team. You will be responsible for building the next
+                        generation of our applications. You will be working
+                        closely with our product team to build the best possible
+                        user experience
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-3 lg:pt-4 pt-6">
+                      <LocationSVG />
+                      <p className="text-lg font-normal">
+                        {/* {item.address} */}
+                        Dhaka, Bangladesh
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="lg:block hidden">
+                <div className="absolute top-0 right-0 h-full w-[105px] duration-300 flex items-center justify-center overflow-hidden">
+                  <div className="z-[100]">
+                    <RightArrowSVG
+                      width="28px"
+                      height="28px"
+                      fillColor="#F4F4F4"
+                    />
+                  </div>
+                  <div className="absolute top-0 right-0 h-full w-0 group-hover:w-full duration-300  bg-[#6b45e6] z-0"></div>
+                </div>
+              </div>
+
+              <div className="lg:hidden block mt-12">
+                <div className="h-full gap-4 hover:gap-6 duration-300 flex items-center justify-center ">
+                  <p className="font-medium ">Apply Now</p>
+
+                  <RightArrowSVG
+                    width="28px"
+                    height="28px"
+                    fillColor="#F4F4F4"
+                  />
+                </div>
+              </div>
+            </div>
+          </Link>
+
+          {/* {loading ? (
             <div>
               <JobsSkeleton />
             </div>
@@ -307,14 +462,16 @@ const AllJobs = () => {
                       <div className="lg:col-span-3 col-span-12 flex lg:justify-end ">
                         <div className="relative overflow-hidden rounded ">
                           <Image
-                            src={`${
-                              item.url
-                                ? `${process.env.NEXT_PUBLIC_BASE_URL}${item.url}`
-                                : "/job1.png"
-                            }`}
+                            src={`/job1.png`}
+                            // src={`${
+                            //   item.url
+                            //     ? `${process.env.NEXT_PUBLIC_BASE_URL}${item.url}`
+                            //     : "/job1.png"
+                            // }`}
                             width={360}
                             height={360}
-                            alt={`${item.designation}`}
+                            // alt={`${item.designation}`}
+                            alt={`item.designation`}
                             className="rounded"
                           />
 
@@ -325,16 +482,19 @@ const AllJobs = () => {
                         <div className="max-w-[625px] flex flex-col justify-between  h-full">
                           <div className="">
                             <h1 className="text-[32px] font-bold mb-6 ">
-                              {item.designation}
+                               {item.designation} 
+                             
                             </h1>
                             <p className="text-xl font-medium text-neutralBase ">
-                              {item.shortDescription}
+                             {item.shortDescription} 
+                             
                             </p>
                           </div>
                           <div className="flex items-center gap-3 lg:pt-4 pt-6">
                             <LocationSVG />
                             <p className="text-lg font-normal">
-                              {item.address}
+                               {item.address} 
+                              
                             </p>
                           </div>
                         </div>
@@ -369,7 +529,7 @@ const AllJobs = () => {
                 </Link>
               ))}
             </div>
-          )}
+          )} */}
         </div>
       </div>
     </div>

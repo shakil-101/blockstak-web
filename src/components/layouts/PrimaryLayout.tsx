@@ -27,7 +27,7 @@ const PrimaryLayout = ({ children }: any) => {
       </Head>
       <ToastContainer position="top-center" />
       <Header />
-      <main className="pt-[140px] ">{children}</main>
+      <main className="pt-[100px] ">{children}</main>
       {router.pathname.includes("success") ? <div></div> : <Footer />}
     </div>
   );

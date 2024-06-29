@@ -15,15 +15,36 @@ const TeamMembers = () => {
     url?: string;
   };
 
-  const ref = useRef(null); // Create a ref to track when in view
-  const isInView = useInView(ref); // Determine if the component is in view
+  const teamMembersRef = useRef(null); // Create a ref to track when in view
+  const isInView = useInView(teamMembersRef); // Determine if the component is in view
   const [animationTriggered, setAnimationTriggered] = useState(false); // Track if the animation has triggered
 
   if (isInView && !animationTriggered) {
     setAnimationTriggered(true); // Trigger animation only once
   }
 
-  const [members, setMembers] = useState<membersType[]>([]);
+  const [members, setMembers] = useState<membersType[]>([
+    {
+      designation: "ML Developer",
+      name: "Nayeem Khan",
+      url: "team.webp",
+    },
+    {
+      designation: "ML Developer",
+      name: "Nayeem Khan",
+      url: "team.webp",
+    },
+    {
+      designation: "ML Developer",
+      name: "Nayeem Khan",
+      url: "team.webp",
+    },
+    {
+      designation: "ML Developer",
+      name: "Nayeem Khan",
+      url: "team.webp",
+    },
+  ]);
 
   const fetchData = async () => {
     try {
@@ -45,7 +66,7 @@ const TeamMembers = () => {
   };
 
   useEffect(() => {
-    fetchData();
+    // fetchData();
   }, []);
 
   return (
@@ -55,26 +76,9 @@ const TeamMembers = () => {
           Our Team
         </h1>
         <motion.div
-          ref={ref} // Attach ref to track when it's in view
+          ref={teamMembersRef} // Attach ref to track when it's in view
           className=""
         >
-          {/* <div className="col-span-1">
-            <div>
-              <Image
-                src="/rectangle.png"
-                alt="Founder"
-                layout="responsive"
-                width={450}
-                height={450}
-                className="w-full"
-              />
-            </div>
-            <div className="pt-3 pb-10 text-center">
-              <h1 className="text-xl font-medium">Name</h1>
-              <p className="font-light pt-2">Founder</p>
-            </div>
-          </div> */}
-
           <div className="col-span-2 grid lg:grid-cols-4 sm:grid-cols-3 xs:grid-cols-2 grid-cols-1  gap-6">
             {members.map((member, index) => (
               <motion.div
@@ -90,7 +94,8 @@ const TeamMembers = () => {
               >
                 <div>
                   <Image
-                    src={`${process.env.NEXT_PUBLIC_BASE_URL}${member.url}`}
+                    // src={`${process.env.NEXT_PUBLIC_BASE_URL}${member.url}`}
+                    src={`/${member.url}`}
                     alt="Team Member"
                     layout="responsive"
                     width={450}

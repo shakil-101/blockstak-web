@@ -70,8 +70,8 @@ const JobDetails = () => {
   }, [router]);
 
   return (
-    <div className="">
-      <div className="bg-tertiaryDark py-20">
+    <div className="bg-tertiaryDark">
+      <div className=" py-20">
         <div className="container">
           {loading ? (
             <div>

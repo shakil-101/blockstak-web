@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 
 const Index = () => {
   return (
-    <div>
+    <div className="">
       <AllJobs />
       <Locations />
       {/* <ContactForm /> */}
