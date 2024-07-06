@@ -85,6 +85,7 @@ const Banner2 = () => {
               className=""
             >
               Get closer to us by
+              {/* Disrupting existing industries */}
             </motion.p>
             <Image
               src="box.svg"
@@ -119,6 +120,7 @@ const Banner2 = () => {
                 variants={textVariants2}
               >
                 Knowing about us
+                {/* Revolutionising digital methodologies */}
               </motion.p>
               <Image
                 src="/float.svg"

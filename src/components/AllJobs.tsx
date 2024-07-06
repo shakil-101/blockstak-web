@@ -116,9 +116,12 @@ const AllJobs = () => {
         </h1>
 
         <p className=" text-neutralBase text-lg font-medium max-w-[575px] mx-auto text-center">
-          Your gateway to opportunities: Discover a world of possibilities with
+          Be a part of our team here in Dhaka and become a spearhead of the next
+          industrial disruption. Apply now and set out on your upcoming
+          high-tech adventure!
+          {/* Your gateway to opportunities: Discover a world of possibilities with
           our diverse job listings. Connect, apply, and embark on your next
-          professional adventure.
+          professional adventure. */}
         </p>
 
         {/* ====== filter options ======== */}

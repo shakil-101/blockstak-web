@@ -25,23 +25,38 @@ const TeamMembers = () => {
 
   const [members, setMembers] = useState<membersType[]>([
     {
-      designation: "ML Developer",
-      name: "Nayeem Khan",
+      designation: "Founder & CEO",
+      name: "Ghalib Hussaiyn",
+      url: "team.webp",
+    },
+    {
+      designation: "Partner",
+      name: "Amer Abdal Habib",
+      url: "team.webp",
+    },
+    {
+      designation: "Technology Consultant",
+      name: "Fahim Murshed",
+      url: "team.webp",
+    },
+    {
+      designation: "Backend Developer",
+      name: "Nayeem Islam",
+      url: "team.webp",
+    },
+    {
+      designation: "Software Engineer",
+      name: "Asif Hossain Khan",
       url: "team.webp",
     },
     {
       designation: "ML Developer",
-      name: "Nayeem Khan",
+      name: "Raghib Noor",
       url: "team.webp",
     },
     {
-      designation: "ML Developer",
-      name: "Nayeem Khan",
-      url: "team.webp",
-    },
-    {
-      designation: "ML Developer",
-      name: "Nayeem Khan",
+      designation: "Frontend Developer",
+      name: "Md Shakil Chowdhury",
       url: "team.webp",
     },
   ]);
@@ -75,6 +90,10 @@ const TeamMembers = () => {
         <h1 className="md:text-[42px] text-3xl font-semibold lg:pb-16 pb-10">
           Our Team
         </h1>
+        {/* <p className=" text-neutralBase text-lg font-medium ">
+          Meet the innovative mavericks at Blockstak who weave new tales of
+          innovation across digital landscapes everyday from their cubicles!
+        </p> */}
         <motion.div
           ref={teamMembersRef} // Attach ref to track when it's in view
           className=""

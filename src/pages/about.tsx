@@ -32,7 +32,7 @@ const about = () => {
     <div className="overflow-hidden">
       <Banner2 />
 
-      <MissionAndVision />
+      {/* <MissionAndVision /> */}
       {/* <OurHistory /> */}
 
       <CompanyMotto />

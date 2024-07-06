@@ -30,8 +30,9 @@ const TechStack = () => {
     { name: "tech", url: "tech6.svg" },
     { name: "tech", url: "tech7.svg" },
     { name: "tech", url: "tech8.svg" },
-    { name: "tech", url: "tech3.svg" },
-    { name: "tech", url: "tech5.svg" },
+    { name: "tech", url: "tech9.png" },
+    { name: "tech", url: "tech10.png" },
+    { name: "tech", url: "tech11.png" },
   ]);
 
   const fetchData = async () => {
