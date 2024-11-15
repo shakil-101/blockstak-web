@@ -6,6 +6,8 @@ import ArrowButton from "./buttons/ArrowButton";
 import RightArrowSVG from "./SVG/RightArrowSVG";
 import Link from "next/link";
 
+import { motion, Variants } from "framer-motion";
+
 const raleway = Raleway({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800", "900"],
@@ -15,6 +17,38 @@ const Banner = () => {
   const [isLoading1, setLoading1] = useState(true);
   const [isLoading2, setLoading2] = useState(true);
   const [isLoading3, setLoading3] = useState(true);
+
+  const textVariants1: Variants = {
+    offscreen: {
+      y: 100,
+      opacity: 0,
+    },
+    onscreen: {
+      opacity: 1,
+      y: 1,
+      transition: {
+        type: "spring",
+        bounce: 0.7,
+        duration: 1,
+      },
+    },
+  };
+  const textVariants2: Variants = {
+    offscreen: {
+      opacity: 0,
+      y: 100,
+    },
+    onscreen: {
+      opacity: 1,
+      y: 1,
+      transition: {
+        type: "spring",
+        bounce: 0.7,
+        duration: 1,
+        delay: 0.4,
+      },
+    },
+  };
 
   return (
     <div className="py-10 md:min-h-[80vh] min-h-[65vh]  flex items-center justify-center">
@@ -43,7 +77,15 @@ const Banner = () => {
               })`}
               onLoadingComplete={() => setLoading1(false)}
             />
-            Building in <span className="text-primary">stealth.</span>
+            <motion.p
+              initial="offscreen"
+              whileInView="onscreen"
+              viewport={{ once: true, amount: 0.8 }}
+              className=""
+              variants={textVariants1}
+            >
+              Building in <span className="text-primary">stealth.</span>
+            </motion.p>
             <Image
               src="box.svg"
               width={100}
@@ -65,12 +107,16 @@ const Banner = () => {
               onLoadingComplete={() => setLoading2(false)}
             />
           </h1>
-          <div
+          <motion.div
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={textVariants2}
             className={`pt-3 flex items-center justify-center flex-wrap md:gap-4 sm:gap-3 gap-2 lg:text-[74px] md:text-5xl sm:text-4xl xs:text-3xl text-2xl font-semibold ${raleway.className}`}
           >
             <h1 className="py-3  w-fit ">Empowered to</h1>
             <h1 className="md:py-3 py-1 w-fit  float-bg">disrupt.</h1>
-          </div>
+          </motion.div>
 
           <div className="">
             <Image

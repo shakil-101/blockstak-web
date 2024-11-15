@@ -102,7 +102,7 @@ const Header = () => {
                 </div>
 
                 <div>
-                  <Link href={`/jobs`}>
+                  <Link href={`/career`}>
                     <button
                       className={` hover:text-primaryLight text-xl font-medium duration-200 ${
                         router.pathname.includes("career")
@@ -210,7 +210,7 @@ const Header = () => {
             </div>
           </div> */}
 
-          <Link href={`/jobs`}>
+          <Link href={`/career`}>
             <div
               onClick={() => setIsOpened(false)}
               className="flex items-center justify-between py-3 group"
@@ -223,6 +223,12 @@ const Header = () => {
               </div> */}
             </div>
           </Link>
+
+          <div onClick={() => setIsOpened(false)}>
+            <Link href={`#contact-us`}>
+              <BubbleButton />
+            </Link>
+          </div>
         </div>
       </div>
     </div>

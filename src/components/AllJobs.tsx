@@ -21,19 +21,40 @@ const AllJobs = () => {
 
   type jobListType = {
     url?: string;
-    title: string;
     shortDescription: string;
     address: string;
     location: string;
     category: string;
     designation: string;
+    thumbnail: string;
 
     createdAt?: string;
     updatedAt?: string;
     id?: string;
   };
 
-  const [jobList, setJobList] = useState<jobListType[]>([]);
+  const [jobList, setJobList] = useState<jobListType[]>([
+    {
+      shortDescription:
+        "We are Looking for an UI/UX Designer at Blockstak, who will be responsible for creating compelling and user-centric designs for our digital products and services. You will collaborate closely with cross-functional teams, including product managers, developers, and stakeholders, to conceptualize, prototype, and implement exceptional user experiences. You will be building products and solutions for emerging startups in Silicon Valley.",
+      address: "Dhaka, Bangladesh",
+      location: "Dhaka",
+      category: "Dev",
+      designation: "Junior UI/UX Engineer",
+      url: "Junior-UI-UX-Engineer",
+      thumbnail: "UI_UX.png",
+    },
+    {
+      shortDescription:
+        "We are Looking for an UI/UX Designer at Blockstak, who will be responsible for creating compelling and user-centric designs for our digital products and services. You will collaborate closely with cross-functional teams, including product managers, developers, and stakeholders, to conceptualize, prototype, and implement exceptional user experiences. You will be building products and solutions for emerging startups in Silicon Valley.",
+      address: "Dhaka, Bangladesh",
+      location: "Dhaka",
+      category: "Dev",
+      designation: "Frontend Intern",
+      url: "UI-UX-Designer",
+      thumbnail: "FrontEnd.png",
+    },
+  ]);
   const [loading, setLoading] = useState<boolean>(true);
 
   const [displayJobs, setDisplayJobs] = useState<jobListType[]>([]);
@@ -54,30 +75,6 @@ const AllJobs = () => {
   const categoryRef = useDetectClickOutside({
     onTriggered: closeCategoryDropdown,
   });
-
-  const fetchData = async () => {
-    console.log("process.env.API_URL--", process.env.NEXT_PUBLIC_BASE_URL);
-
-    setLoading(true);
-    try {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/api/jobs`
-      );
-      // if (!response.ok) {
-      //   toast.error("Network response was not ok");
-      // }
-      const data = await response.json();
-      console.log("fetch: ", data.docs);
-      setJobList(data.docs);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-    setLoading(false);
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
 
   useEffect(() => {
     if (activeCategory && !selectedLocation) {
@@ -110,15 +107,15 @@ const AllJobs = () => {
 
   return (
     <div>
-      <div className="">
+      <div className="pt-20">
         <h1 className="sm:text-[32px] text-2xl sm:font-bold font-semibold text-center mb-3">
           Build Yourself with BlockStak
         </h1>
 
         <p className=" text-neutralBase text-lg font-medium max-w-[575px] mx-auto text-center">
-          Your gateway to opportunities: Discover a world of possibilities with
-          our diverse job listings. Connect, apply, and embark on your next
-          professional adventure.
+          Be a part of our team here in Dhaka and become a spearhead of the next
+          industrial disruption. Apply now and set out on your upcoming
+          high-tech adventure!
         </p>
 
         {/* ====== filter options ======== */}
@@ -290,86 +287,74 @@ const AllJobs = () => {
 
         {/* ====== jobs ======== */}
         <div className="">
-          {loading ? (
-            <div>
-              <JobsSkeleton />
-            </div>
-          ) : (
-            <div>
-              {displayJobs.map((item, index) => (
-                <Link key={index} href={`jobs/${item.id}`}>
-                  <div
-                    className={`${
-                      index === 0 ? "border-y" : "border-b"
-                    }  relative border-secondaryBorder group lg:py-16 py-8`}
-                  >
-                    <div className="container grid grid-cols-12 lg:gap-16 lg:gap-y-0 gap-y-6 ">
-                      <div className="lg:col-span-3 col-span-12 flex lg:justify-end ">
-                        <div className="relative overflow-hidden rounded ">
-                          <Image
-                            src={`${
-                              item.url
-                                ? `${process.env.NEXT_PUBLIC_BASE_URL}${item.url}`
-                                : "/job1.png"
-                            }`}
-                            width={360}
-                            height={360}
-                            alt={`${item.designation}`}
-                            className="rounded"
-                          />
+          <div>
+            {displayJobs.map((item, index) => (
+              <Link key={index} href={`/career/${item.url}`}>
+                <div
+                  className={`${
+                    index === 0 ? "border-y" : "border-b"
+                  }  relative border-secondaryBorder group lg:py-16 py-8`}
+                >
+                  <div className="container grid grid-cols-12 lg:gap-16 lg:gap-y-0 gap-y-6 ">
+                    <div className="lg:col-span-3 col-span-12 flex lg:justify-end ">
+                      <div className="relative overflow-hidden rounded ">
+                        <Image
+                          src={`${item.thumbnail}`}
+                          width={360}
+                          height={360}
+                          alt={`${item.designation}`}
+                          className="rounded"
+                        />
 
-                          <div className="absolute top-0 right-0 h-full w-full opacity-0 group-hover:opacity-100 duration-300 bg-gradient-to-tr from-transparent via-transparent to-[#6b45e67c]"></div>
-                        </div>
+                        <div className="absolute top-0 right-0 h-full w-full opacity-0 group-hover:opacity-100 duration-300 bg-gradient-to-tr from-transparent via-transparent to-[#6b45e67c]"></div>
                       </div>
-                      <div className="lg:col-span-9 col-span-12 ">
-                        <div className="max-w-[625px] flex flex-col justify-between  h-full">
-                          <div className="">
-                            <h1 className="text-[32px] font-bold mb-6 ">
-                              {item.designation}
-                            </h1>
-                            <p className="text-xl font-medium text-neutralBase ">
-                              {item.shortDescription}
-                            </p>
-                          </div>
-                          <div className="flex items-center gap-3 lg:pt-4 pt-6">
-                            <LocationSVG />
-                            <p className="text-lg font-normal">
-                              {item.address}
-                            </p>
-                          </div>
+                    </div>
+                    <div className="lg:col-span-9 col-span-12 ">
+                      <div className="max-w-[625px] flex flex-col justify-between  h-full">
+                        <div className="">
+                          <h1 className="text-[32px] font-bold mb-6 ">
+                            {item.designation}
+                          </h1>
+                          <p className="text-xl font-medium text-neutralBase ">
+                            {item.shortDescription}
+                          </p>
+                        </div>
+                        <div className="flex items-center gap-3 lg:pt-4 pt-6">
+                          <LocationSVG />
+                          <p className="text-lg font-normal">{item.address}</p>
                         </div>
                       </div>
                     </div>
+                  </div>
 
-                    <div className="lg:block hidden">
-                      <div className="absolute top-0 right-0 h-full w-[105px] duration-300 flex items-center justify-center overflow-hidden">
-                        <div className="z-[100]">
-                          <RightArrowSVG
-                            width="28px"
-                            height="28px"
-                            fillColor="#F4F4F4"
-                          />
-                        </div>
-                        <div className="absolute top-0 right-0 h-full w-0 group-hover:w-full duration-300  bg-[#6b45e6] z-0"></div>
-                      </div>
-                    </div>
-
-                    <div className="lg:hidden block mt-12">
-                      <div className="h-full gap-4 hover:gap-6 duration-300 flex items-center justify-center ">
-                        <p className="font-medium ">Apply Now</p>
-
+                  <div className="lg:block hidden">
+                    <div className="absolute top-0 right-0 h-full w-[105px] duration-300 flex items-center justify-center overflow-hidden">
+                      <div className="z-[100]">
                         <RightArrowSVG
                           width="28px"
                           height="28px"
                           fillColor="#F4F4F4"
                         />
                       </div>
+                      <div className="absolute top-0 right-0 h-full w-0 group-hover:w-full duration-300  bg-[#6b45e6] z-0"></div>
                     </div>
                   </div>
-                </Link>
-              ))}
-            </div>
-          )}
+
+                  <div className="lg:hidden block mt-12">
+                    <div className="h-full gap-4 hover:gap-6 duration-300 flex items-center justify-center ">
+                      <p className="font-medium ">Apply Now</p>
+
+                      <RightArrowSVG
+                        width="28px"
+                        height="28px"
+                        fillColor="#F4F4F4"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </div>

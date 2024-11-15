@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import RightArrowSVG from "./SVG/RightArrowSVG";
 import SubmitButton from "./buttons/SubmitButton";
 import { toast } from "react-toastify";
+import { motion, Variants } from "framer-motion";
 
 const ContactForm = () => {
   type formDataType = {
@@ -52,6 +53,23 @@ const ContactForm = () => {
     }
   };
 
+  const textVariants: Variants = {
+    offscreen: {
+      y: 50,
+      opacity: 0,
+    },
+    onscreen: (delay: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        bounce: 0.6,
+        duration: 0.7,
+        delay: delay * 0.1, // Incremental delay, each item delayed more than the previous
+      },
+    }),
+  };
+
   return (
     <div id="contact-us" className="lg:pt-28 lg:pb-16 py-10 ">
       <div className="container mx-auto">
@@ -62,7 +80,13 @@ const ContactForm = () => {
 
           <form onSubmit={submitForm}>
             <div className="grid lg:grid-cols-2 grid-cols-1 sm:gap-10 gap-6 sm:pb-10 pb-6">
-              <div>
+              <motion.div
+                initial="offscreen"
+                whileInView="onscreen"
+                viewport={{ once: true, amount: 0.8 }}
+                variants={textVariants}
+                custom={1}
+              >
                 <input
                   required
                   onChange={(e) =>
@@ -73,8 +97,14 @@ const ContactForm = () => {
                   placeholder="Your Name"
                   className="bg-transparent border border-borderWhite w-full sm:p-5 p-3 rounded-md outline-primaryLight placeholder-primaryWhite sm:font-medium sm:text-xl text-sm"
                 />
-              </div>
-              <div>
+              </motion.div>
+              <motion.div
+                initial="offscreen"
+                whileInView="onscreen"
+                viewport={{ once: true, amount: 0.8 }}
+                variants={textVariants}
+                custom={2}
+              >
                 <input
                   required
                   onChange={(e) =>
@@ -85,10 +115,17 @@ const ContactForm = () => {
                   placeholder="Your Email"
                   className="bg-transparent border border-borderWhite w-full sm:p-5 p-3 rounded-md outline-primaryLight placeholder-primaryWhite sm:font-medium sm:text-xl text-sm"
                 />
-              </div>
+              </motion.div>
             </div>
 
-            <div className="sm:pb-10 pb-6">
+            <motion.div
+              initial="offscreen"
+              whileInView="onscreen"
+              viewport={{ once: true, amount: 0.8 }}
+              variants={textVariants}
+              custom={3}
+              className="sm:pb-10 pb-6"
+            >
               <textarea
                 required
                 onChange={(e) =>
@@ -99,7 +136,7 @@ const ContactForm = () => {
                 rows={4}
                 className="bg-transparent border border-borderWhite w-full sm:p-5 p-3 rounded-md outline-primaryLight placeholder-primaryWhite sm:font-medium sm:text-xl text-sm"
               />
-            </div>
+            </motion.div>
             <div className="sm:flex justify-center">
               <button className="group sm:w-[210px] w-full bg-primaryLight  sm:py-4 py-2 flex items-center justify-center gap-4 rounded border duration-300  border-primaryLight hover:bg-primaryDark hover:border-primaryWhite">
                 <span className="sm:text-xl text-lg sm:font-medium">
