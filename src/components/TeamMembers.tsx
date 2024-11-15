@@ -27,37 +27,37 @@ const TeamMembers = () => {
     {
       designation: "Founder & CEO",
       name: "Ghalib Hussaiyn",
-      url: "team.webp",
+      url: "ghalib.png",
     },
     {
       designation: "Partner",
       name: "Amer Abdal Habib",
-      url: "team.webp",
+      url: "ameer.png",
     },
     {
       designation: "Technology Consultant",
       name: "Fahim Murshed",
-      url: "team.webp",
+      url: "fahim.jpg",
     },
     {
       designation: "Backend Developer",
       name: "Nayeem Islam",
-      url: "team.webp",
+      url: "nayeem.jpg",
     },
     {
       designation: "Software Engineer",
       name: "Asif Hossain Khan",
-      url: "team.webp",
+      url: "asif.jpg",
     },
     {
       designation: "ML Developer",
       name: "Raghib Noor",
-      url: "team.webp",
+      url: "raghib.jpg",
     },
     {
       designation: "Frontend Developer",
       name: "Md Shakil Chowdhury",
-      url: "team.webp",
+      url: "shakil.jpg",
     },
   ]);
 

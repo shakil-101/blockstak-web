@@ -29,7 +29,9 @@ const Locations = () => {
 
   type dataType = {
     city: string;
-    location: string;
+    locationLine1?: string;
+    locationLine2?: string;
+    locationLine3?: string;
     email: string;
     phone: string;
   };
@@ -38,13 +40,17 @@ const Locations = () => {
     {
       city: "San Jose",
       email: "support@blockstak.ai",
-      location: "House 141, Lane 1, Baridhara DOHS",
+      locationLine1: "6412 Spring Meadow Ct San Jose",
+      locationLine2: "San Francisco Bay Area",
+      locationLine3: "California",
       phone: "+880245267882",
     },
     {
       city: "Dhaka",
       email: "support@blockstak.ai",
-      location: "House 141, Lane 1, Baridhara DOHS",
+      locationLine1: "House 648, Road-9",
+      locationLine2: "Mirpur DOHS",
+      locationLine3: "",
       phone: "+880245267882",
     },
   ]);
@@ -110,7 +116,11 @@ const Locations = () => {
               className="py-2"
             >
               <address className="md:text-xl sm:text-base text-sm md:font-medium not-italic">
-                {addressData[1]?.location}
+                {addressData[1]?.locationLine1}
+                <br />
+                {addressData[1]?.locationLine2}
+                <br />
+                {addressData[1]?.locationLine3}
               </address>
             </motion.div>
 
@@ -150,7 +160,11 @@ const Locations = () => {
                 className="py-2"
               >
                 <address className="md:text-xl sm:text-base text-sm md:font-medium not-italic">
-                  {addressData[0]?.location}
+                  {addressData[0]?.locationLine1}
+                  <br />
+                  {addressData[0]?.locationLine2}
+                  <br />
+                  {addressData[0]?.locationLine3}
                 </address>
               </motion.div>
 
